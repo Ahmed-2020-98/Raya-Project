@@ -1,0 +1,231 @@
+<ul class="nav nav-tabs justify-content-center mt-3" id="myTab" role="tablist">
+    <li class="nav-item" >
+        <button class="nav-link text-warning active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button"
+            role="tab" aria-controls="home-tab-pane" aria-selected="true">All Products</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link text-warning" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button"
+            role="tab" aria-controls="profile-tab-pane" aria-selected="false">Delete/Update</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link text-warning" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button"
+            role="tab" aria-controls="contact-tab-pane" aria-selected="false">Add Products</button>
+    </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+        <div class="d-flex justify-content-center">
+            <select class="btn btn-warning col-3 m-3" #catIdValue name="" id="" (change)="test(catIdValue.value)">
+                <option disabled selected>Choose Category</option>
+                <option value={{cat.id}} *ngFor="let cat of categories">{{cat.name}}</option>
+            </select>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let prd of Products let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{prd.id}}</td>
+                    <td>{{prd.name}}</td>
+                    <td><img src={{prd.img}} width="40rem"></td>
+                    <td>{{prd.quantity}}</td>
+                    <td>{{prd.price}}</td>
+                    <td><button class="btn btn-warning">Details</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Update</th>
+                    <th scope="col">Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let prd of Products let i = index">
+                    <th scope="row">{{i+1}}</th>
+                    <td>{{prd.id}}</td>
+                    <td>{{prd.name}}</td>
+                    <td><img src={{prd.img}} width="40rem"></td>
+                    <td>{{prd.quantity}}</td>
+                    <td>{{prd.price}}</td>
+                    <td><button class="btn btn-success m-1">Update</button></td>
+                    <td><button class="btn btn-danger m-1">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+<!-- ahmed  -->
+    <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+        <div class="d-flex flex-column align-items-center mt-3 pt-5">
+            <!-- <form action="">
+            <table class="table table-success table-striped">
+                <thead >
+                    <tr>
+                        <td>ID</td>
+                        <td>Name</td>
+                        <td>Quantity</td>
+                        <td>Price</td>
+                        <td>Category</td>
+                        <td>Image</td>
+                        <td>Save</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><input class="form-control" type="text" name="" id="" required pattern="[A-Za-z]{3,14}"></td>
+                        <td><input class="form-control" type="number" name="" id="" required></td>
+                        <td><input class="form-control" type="number" name="" id="" required></td>
+                        <td>
+                            <select class="form-select" aria-label="Default select example">
+                                <option selected disabled>select category</option>
+                                <option value={{cat.id}} *ngFor="let cat of categories">{{cat.name}}</option>
+                              </select>
+                        </td>
+                        <td><input type="file" class="form-control" required></td>
+                        <td><button class="btn btn-success">Save</button></td>
+                    </tr>
+
+                </tbody>
+              </table>
+            </form> -->
+
+
+
+
+
+             <!--
+            <form class="w-50">
+                <div class="mb-3">
+                  <label for="prdName" class="form-label">Product Name</label>
+              
+                  <input type="text" class="form-control" name="prdName" id="prdName">
+                    <div class="alert alert-danger" [hidden]="prdNameInput.valid">Name is required and must be three letters at least</div> -->
+                  <!-- <div class="alert alert-danger" [hidden]="prdNameInput.valid || prdNameInput.untouched">Name is required and must be three letters at least</div>
+                  <div class="alert alert-danger" hidden>
+                      <small >
+                          Product Name is required
+                      </small>
+                      <small>
+                          Product Name must be 3 letters at least
+                      </small>
+                  </div>
+              
+                </div>
+              
+              
+                <div class="mb-3">
+                  <label for="prdQuant" class="form-label">Quantity</label>
+                  <input type="number" class="form-control" name="prdQuant" id="prdQuant" required >
+                </div>
+              
+                <div class="mb-3">
+                  <label for="prdPrc" class="form-label">Price</label>
+                  <input type="number" class="form-control" name="prdPrc" id="prdPrc" required >
+                </div>
+              
+                <div class="mb-3">
+                  <label for="prdCat" class="form-label">Select Category</label>
+                  <select class="form-select" aria-label="Default select example">
+                    <option selected disabled>select category</option>
+                    <option value={{cat.id}} *ngFor="let cat of categories">{{cat.name}}</option>
+                  </select>
+                </div>
+              
+              
+                <button type="submit" class="btn btn-success" >Submit</button>
+              </form>
+            -->
+
+            <div class="container">
+                <form  (ngSubmit)="insertNewProduct()">
+                    <div class="mb-3">
+                      <label for="prdName" class="form-label">Product Name</label>
+                  
+                      <input type="text" #newPrdInput="ngModel" class="form-control" name="prdName" id="prdName" [(ngModel)]="newPrd.name" required pattern="[A-Za-z]{3,10}">
+                      <!-- <input type="text" #newPrdInput class="form-control" name="prdName" id="prdName" required pattern="[A-Za-z]{3,10}"> -->
+                      <!-- <div class="alert alert-danger" [hidden]="newPrdInput.valid || newPrdInput.untouched">Error ya basha</div> -->
+                      <div class="alert alert-danger" [hidden]="newPrdInput.untouched || newPrdInput.valid">
+                        
+                        <small *ngIf="newPrdInput.errors?.['required']">
+                            Product Name is required
+                        </small>
+                        <small *ngIf="newPrdInput.errors?.['pattern']">
+                            Product Name must be 3 letters at least
+                        </small>
+                      </div>
+
+                    </div>
+                  
+                  
+                    <div class="mb-3">
+                      <label for="prdQuant" class="form-label">Quantity</label>
+                      <input type="number" #newPrdInput="ngModel" class="form-control" name="prdQuant" [(ngModel)]="newPrd.quantity" id="prdQuant" required pattern="[0-9]{1,4}" >
+                      <div class="alert alert-danger" [hidden]="newPrdInput.untouched || newPrdInput.valid">
+                        
+                        <small *ngIf="newPrdInput.errors?.['required']">
+                            Product quantity is required
+                        </small>
+                        <small *ngIf="newPrdInput.errors?.['pattern']">
+                            Product quantity must be 3 letters at least
+                        </small>
+                      </div>
+                    </div>
+                  
+                    <div class="mb-3">
+                      <label for="prdPrc" class="form-label">Price</label>
+                      <input type="number" class="form-control" name="prdPrc" id="prdPrc" [(ngModel)]="newPrd.price" required pattern="[0-9]{1,4}">
+                      <div class="alert alert-danger" [hidden]="newPrdInput.untouched || newPrdInput.valid">
+                        
+                        <small *ngIf="newPrdInput.errors?.['required']">
+                            Product quantity is required
+                        </small>
+                        <small *ngIf="newPrdInput.errors?.['pattern']">
+                            Product price must be 3 letters at least
+                        </small>
+                      </div>
+                    </div>
+                  
+                    <div class="mb-3">
+                      <label for="prdCat" class="form-label">Select Category</label>
+                      <select class="form-control" name="prdCat" id="prdCat" >
+                        <option *ngFor="let cat of categories" [value]="cat.id">
+                          {{cat.name}}
+                        </option>
+                      </select>
+                    </div>
+                  
+                  
+                    <button type="submit" class="btn btn-success" >Submit</button>
+                  </form>
+                  
+                  <div class="bg-warning">
+                      <!-- For test : {{newPrd | json}} -->
+                    <!-- <h1>  for test classes: {{prdNameInput.className | json}} </h1> -->
+                    <!-- <h1>For test input errors: {{newPrdInput.className}}</h1> -->
+                  </div>
+                </div>
+          
+        </div>
+    </div>
+
+</div>

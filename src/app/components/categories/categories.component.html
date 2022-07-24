@@ -1,0 +1,70 @@
+<!-- <div class="container-fluid">
+    <div *ngFor="let cat of categories">
+        {{cat.name}}/{{cat.id}}
+    </div>
+</div> -->
+
+<ul class="nav nav-tabs justify-content-center mt-3" id="myTab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link text-warning active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">All Categories</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link text-warning" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Delete/Update</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link text-warning" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" type="button" role="tab" aria-controls="contact-tab-pane" aria-selected="false">Add Categories</button>
+    </li>
+  </ul> 
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Details</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let cat of categories let i = index">
+                  <th scope="row">{{i+1}}</th>
+                  <td>{{cat.id}}</td>
+                  <td>{{cat.name}}</td>
+                  <td><button class="btn btn-warning">Details</button></td>
+                </tr>
+              </tbody>
+          </table>
+    </div>
+    <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">ID</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Update</th>
+                  <th scope="col">Delete</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let cat of categories let i = index">
+                  <th scope="row">{{i+1}}</th>
+                  <td>{{cat.id}}</td>
+                  <td>{{cat.name}}</td>
+                  <td><button class="btn btn-success m-1">Update</button></td>
+                  <td><button class="btn btn-danger m-1" (click)="deleteCat(cat.id)">Delete</button></td>
+                </tr>
+              </tbody>
+          </table>
+    </div>
+    <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+        <div class="d-flex flex-column align-items-center mt-5 pt-5">
+            <h3>Add New Category</h3>
+            <form [formGroup]="addCategory" class="d-flex flex-column align-items-center justify-content-center">
+                <input formControlName="name" class="mt-5" type="text">
+                <button class="btn btn-success mt-3" (click)="addNewCat()">Save</button>
+            </form>
+        </div>
+    </div>
+  </div>

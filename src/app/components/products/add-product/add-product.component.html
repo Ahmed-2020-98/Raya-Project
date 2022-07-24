@@ -1,0 +1,45 @@
+
+            <div class="container">
+              <form  (ngSubmit)="insertNewProduct()">
+                  <div class="mb-3">
+                    <label for="prdName" class="form-label">Product Name</label>
+                
+                    <input type="text" #newPrdInput="ngModel" class="form-control" name="prdName" id="prdName" [(ngModel)]="newPrd.name" required pattern="[A-Za-z]{3,10}">
+                    <!-- <input type="text" #newPrdInput class="form-control" name="prdName" id="prdName" required pattern="[A-Za-z]{3,10}"> -->
+                    <!-- <div class="alert alert-danger" [hidden]="newPrdInput.valid || newPrdInput.untouched">Error ya basha</div> -->
+                    <div class="alert alert-danger" [hidden]="newPrdInput.valid ||newPrdInput.untouched">Name is required and must be three letters at least</div>
+
+                  </div>
+                
+                
+                  <div class="mb-3">
+                    <label for="prdQuant"  class="form-label">Quantity</label>
+                    <input type="number" #newPrd="ngModel" class="form-control" name="prdQuant" id="prdQuant"  [(ngModel)]="newPrd.name"  required pattern="[0-9]{1,4}">
+                    <div class="alert alert-danger" [hidden]="newPrdInput.valid ||newPrdInput.untouched">Name is required and must be three letters at least</div>
+
+                  </div>
+                
+                  <div class="mb-3">
+                    <label for="prdPrc" class="form-label">Price</label>
+                    <input type="number" class="form-control" name="prdPrc" id="prdPrc"  >
+                  </div>
+                
+                  <div class="mb-3">
+                    <label for="prdCat" class="form-label">Select Category</label>
+                    <select class="form-control" name="prdCat" id="prdCat" >
+                      <option *ngFor="let cat of catList" [value]="cat.id">
+                        {{cat.name}}
+                      </option>
+                    </select>
+                  </div>
+                
+                
+                  <button type="submit" class="btn btn-success" >Submit</button>
+                </form>
+                
+                <div class="bg-warning">
+                    <!-- For test : {{newPrd | json}} -->
+                  <!-- <h1>  for test classes: {{prdNameInput.className | json}} </h1> -->
+                  <!-- <h1>For test input errors: {{newPrdInput.className}}</h1> -->
+                </div>
+              </div>
